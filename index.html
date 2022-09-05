@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My shopping list</title>
+  <style>
+    /* body {
+      -moz-user-select: -moz-none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    } */
+  </style>
+  <meta name="referrer" content="no-referrer" />
+  <script>
+    // history.pushState("", document.title, window.location.pathname + window.location.search);
+    // window.onload = function () {
+    //   document.addEventListener("contextmenu", function (e) {
+    //     e.preventDefault();
+    //   }, false);
+    //   document.addEventListener("keydown", function (e) {
+    //     // "I" key
+    //     if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+    //       disabledEvent(e);
+    //     }
+    //     // "J" key
+    //     if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+    //       disabledEvent(e);
+    //     }
+    //     // "S" key + macOS
+    //     if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+    //       disabledEvent(e);
+    //     }
+    //     // "U" key
+    //     if (e.ctrlKey && e.keyCode == 85) {
+    //       disabledEvent(e);
+    //     }
+    //     // "F12" key
+    //     if (event.keyCode == 123) {
+    //       disabledEvent(e);
+    //     }
+    //   }, false);
+    //   function disabledEvent(e) {
+    //     if (e.stopPropagation) {
+    //       e.stopPropagation();
+    //     } else if (window.event) {
+    //       window.event.cancelBubble = true;
+    //     }
+    //     e.preventDefault();
+    //     return false;
+    //   }
+    // }
+    // document.addEventListener('contextmenu', event => event.preventDefault());
+    if (localStorage.getItem("kategoriler") == null) {
+      localStorage.setItem("kategoriler", "[\"Vegetables &#38; Fruits\",\"Kitchen shopping\",\"Delicatessen\",\"Stationery\"]");
+    }
+    if (localStorage.getItem("urunler") == null) {
+      localStorage.setItem("urunler", "[[\"Vegetables &#38; Fruits\",\"10 tomatoes\",false],[\"Vegetables &#38; Fruits\",\"10 cucumbers\",false],[\"Vegetables &#38; Fruits\",\"2 parsley\",false],[\"Vegetables &#38; Fruits\",\"1 black cabbage\",false],[\"Kitchen shopping\",\"4 dishwashing sponges\",false],[\"Delicatessen\",\"480 grams of red meat\",false],[\"Delicatessen\",\"850 grams of chicken\",false],[\"Stationery\",\"50 centimeter ruler\",false],[\"Stationery\",\"5 pcs crayons\",false],[\"Stationery\",\"8 pcs art brush\",false],[\"Stationery\",\"8 pcs art brush\",false],[\"Stationery\",\"Intermediate level dictionary\",false]]");
+    }
+    var kategoriler = JSON.parse(localStorage.getItem("kategoriler"));
+    var urunler = JSON.parse(localStorage.getItem("urunler"));
+    document.write('<script src="/scriptler/onemli-fonksiyonlar.js?x=' + new Date().valueOf() + '"><\/script>')
+  </script>
+</head>
+
+<!-- <body class="bg-light lead" oncopy="return false" oncut="return false" onpaste="return false"
+  oncontextmenu="return false;"> -->
+
+<body class="bg-light lead">
+  <!-- <div translate="no" id="sayfa-yukeniyor">
+    <style>
+      @font-face {
+        font-family: 'HAKKOD';
+        src: url('HAKKOD.woff2') format('woff2')
+      }
+      #sayfa-yukeniyor {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 200%;
+        background-color: #f0f0f0;
+        color: #000;
+        z-index: 99999;
+        text-align: center;
+        font-family: HAKKOD;
+      }
+    </style>
+    <div style="margin-top: 20%;">
+      <p id="giris-ekrani-hakkod-yazisi" style="font-size: 50px;font-weight: bold;">
+        HAKKOD
+      </p>
+    </div>
+    <script>
+      async function girisEkraniAnimasyon() {
+        for (var i = 0; ; i++) {
+          if (i > 30) {
+            document.getElementById("giris-ekrani-hakkod-yazisi").innerText = "HAKKOD";
+            await bekle(500);
+            document.getElementById('sayfa-yukeniyor').remove();
+            break;
+          } else if (i > 25) {
+            document.getElementById("giris-ekrani-hakkod-yazisi").innerText = "HAKKO" +
+              parseInt(Math.random() * 10).toString();
+          } else if (i > 20) {
+            document.getElementById("giris-ekrani-hakkod-yazisi").innerText = "HAKK" +
+              parseInt(Math.random() * 10).toString() +
+              parseInt(Math.random() * 10).toString();
+          } else if (i > 15) {
+            document.getElementById("giris-ekrani-hakkod-yazisi").innerText = "HAK" +
+              parseInt(Math.random() * 10).toString() +
+              parseInt(Math.random() * 10).toString() +
+              parseInt(Math.random() * 10).toString();
+          } else if (i > 10) {
+            document.getElementById("giris-ekrani-hakkod-yazisi").innerText = "HA" +
+              parseInt(Math.random() * 10).toString() +
+              parseInt(Math.random() * 10).toString() +
+              parseInt(Math.random() * 10).toString() +
+              parseInt(Math.random() * 10).toString();
+          } else if (i > 5) {
+            document.getElementById("giris-ekrani-hakkod-yazisi").innerText = "H" +
+              parseInt(Math.random() * 10).toString() +
+              parseInt(Math.random() * 10).toString() +
+              parseInt(Math.random() * 10).toString() +
+              parseInt(Math.random() * 10).toString() +
+              parseInt(Math.random() * 10).toString();
+          } else {
+            document.getElementById("giris-ekrani-hakkod-yazisi").innerText = parseInt(Math.random() * 10).toString() + parseInt(Math.random() * 10).toString() + parseInt(Math.random() * 10).toString() + parseInt(Math.random() * 10).toString() + parseInt(Math.random() * 10).toString() + parseInt(Math.random() * 10).toString();
+          }
+          await bekle(75);
+        }
+      }
+      girisEkraniAnimasyon();
+    </script>
+  </div> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 bg-white shadow-sm">
+        <div class="container">
+          <p>
+          <div class="row">
+            <div class="col-2 text-end">
+              <img src="https://img.icons8.com/cute-clipart/35/000000/language.png" data-bs-toggle="modal"
+                data-bs-target="#dil_secme_modeli" />
+            </div>
+            <div class="col-8 text-center">
+              My shopping list
+            </div>
+            <div class="col-2 text-start">
+              <img style="width:35px;height:35px;cursor:pointer;" data-bs-toggle="modal"
+                data-bs-target="#kategori_ekleme_modeli" src="/gorseller/kategori-ekle.png">
+            </div>
+          </div>
+          </p>
+        </div>
+      </div>
+      <div class="col-12 mt-1 p-3">
+        <div class="container bg-white rounded">
+          <div class="accordion accordion-flush" id="kategoriler">
+          </div>
+          <div style="width: 100%;height: 400px;"></div>
+          <div class="mb-5">
+            <a href="privacy.html" class="text-dark">Privacy</a>
+          </div>
+          <div class="mt-5 mb-5">
+            <p>There are icons taken from <a href="https://icons8.com" class="text-dark">icons8</a> in the icons you use
+              in our application.</p>
+          </div>
+          <table>
+            <tr>
+              <td><img style="width: 60px;height: 60px;"
+                  src="https://img.icons8.com/cute-clipart/100/000000/shopping-cart.png"></td>
+              <td>&nbsp;</td>
+              <td>
+                It is coded by <span translate="no">Talha YILDIZ</span> and <span translate="no"></span>Said Nuri
+                YILDIZ</span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col-12 bg-white shadow-sm">
+        <div class="container">
+          <p>
+          <div class="row">
+            <div class="col-12 text-center">
+              &copy; All rights reserved
+            </div>
+          </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Model - Dinamik model -->
+  <button id="dinamik_modeli_acan_buton" hidden data-bs-toggle="modal" data-bs-target="#dinamik_model"></button>
+  <div class="modal fade" id="dinamik_model" tabindex="-1" aria-labelledby="dinamik_modelin_basligi" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="dinamik_modelin_basligi"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div id="dinamik_modelin_govdesi" class="modal-body">
+        </div>
+        <div id="dinamik_modelin_footeri" class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Model - Kategori ekleme modeli -->
+  <button id="kategori_ekleme_modelini_acan_buton" hidden data-bs-toggle="modal"
+    data-bs-target="#kategori_ekleme_modeli"></button>
+
+  <div class="modal fade" id="kategori_ekleme_modeli" tabindex="-1" aria-labelledby="kategori_ekleme_modelinin_etiketi"
+    aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="kategori_ekleme_modelinin_etiketi">
+            <img style="width:35px;height:35px;" src="/gorseller/kategori-ekle.png">
+            Create a new category
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Enter the name of the new category you want to create in the box below and click on the "Save changes"
+            button.
+          </p>
+          <div class="input-group mb-3">
+            <span class="input-group-text bg-light" id="yeni_kategori_adi_eklenti">
+              <img style="width: 30px;height: 30px;"
+                src="https://img.icons8.com/cute-clipart/100/000000/tag-window.png">
+            </span>
+            <input maxlength="50" id="yeni_kategori_adi" type="text" class="form-control lead"
+              placeholder="New category name" aria-label="New category name"
+              aria-describedby="yeni_kategori_adi_eklenti">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="kategori_ekleme_modelini_kapatan_buton" type="button"
+            class="btn btn-outline-secondary lead ps-5 pe-5" data-bs-dismiss="modal">Close</button>
+          <button onclick="yeniKategoriEkle();" type="button" class="btn btn-success lead ps-5 pe-5">Save
+            changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Model - Kategori silme modeli -->
+  <button id="kategori_silme_modelini_acan_buton" hidden data-bs-toggle="modal"
+    data-bs-target="#kategori_silme_modeli"></button>
+  <div class="modal fade" id="kategori_silme_modeli" tabindex="-1" aria-labelledby="kategori_silme_modeli_basligi"
+    aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="kategori_silme_modeli_basligi">
+            <img style="width:35px;height:35px;" src="https://img.icons8.com/cute-clipart/100/000000/close-window.png">
+            Deleting a category
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete the category named "<span id="silinecek_kategorinin_adi"></span>"?
+        </div>
+        <div class="row row-cols-1 row-cols-2 p-3">
+          <div class="col">
+            <div class="card h-100">
+                <button type="button" class="btn btn-outline-secondary lead col-12"
+                  data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+                <button id="kategoriyi_silmek_istedigime_eminim_butonu" type="button" class="btn btn-danger lead col-12"
+                  data-bs-dismiss="modal" onclick="kategoriSil();">Yes, I'm sure</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Model - Ürün ekleme modeli -->
+  <button id="urun_ekleme_modelini_acan_buton" hidden data-bs-toggle="modal"
+    data-bs-target="#urun_ekleme_modeli"></button>
+  <div class="modal fade" id="urun_ekleme_modeli" tabindex="-1" aria-labelledby="urun_ekleme_modeli_basligi"
+    aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="urun_ekleme_modeli_basligi">
+            <img style="width:35px;height:35px;" src="/gorseller/liste-ekle.png">
+            Products to be purchased
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Enter the items you need to buy while shopping as a single item in the box below.
+          </p>
+          <p>
+            The name of the category to which the product will be added: "<span
+              id="urunun_eklenecegi_kategorinin_adi"></span>"
+          </p>
+          <div id="eklenecek_urunler">
+
+          </div>
+          <button onclick="eklenecekUrunlerinSayisiniArttir();" class="btn btn-outline-primary ps-5 pe-5">Create new
+            product entry</button>
+          <div class="mt-5" id="hizli_urun_ekleme_listesi">
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="kategori_ekleme_modelini_kapatan_buton" type="button"
+            class="btn btn-outline-secondary lead ps-5 pe-5" data-bs-dismiss="modal">Close</button>
+          <button id="urun_ekleme_butonu" onclick="urunEkle();" type="button" class="btn btn-primary lead ps-5 pe-5"
+            data-bs-dismiss="modal">Save
+            changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+
+  <script>
+    document.write('<script src="/scriptler/uygulama.js?x=' + new Date().valueOf() + '"><\/script>')
+    document.write('<script src="/scriptler/dil-sec.js?x=' + new Date().valueOf() + '"><\/script>')
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Privacy</title>
+</head>
+
+<body class="bg-light lead">
+    <div translate="no" id="sayfa-yukeniyor">
+        <style>
+            #sayfa-yukeniyor {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                height: 200%;
+                background-color: #fff;
+                color: #000;
+                z-index: 99999;
+                text-align: center;
+            }
+        </style>
+        <div style="margin-top: 20%;"><img
+                src="data:;base64,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">
+        </div>
+        <script>
+            window.onload = function (e) {
+                document.getElementById('sayfa-yukeniyor').remove();
+            }
+        </script>
+    </div>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 bg-white shadow-sm">
+                <div class="container">
+                    <p>
+                    <div class="row">
+                        <div class="col-2 text-end">
+                            <svg onclick="window.location.href='/?'" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                            </svg>
+                        </div>
+                        <div class="col-8 text-center">
+                            Privacy
+                        </div>
+                        <div class="col-2 text-start">
+                        </div>
+                    </div>
+                    </p>
+                </div>
+            </div>
+            <div class="col-12 mt-1 p-3">
+                <div class="container bg-white rounded p-5">
+                    <p class="fs-1">Summary</p>
+                    <ol type="I">
+                        <li>
+                            Storage of Data
+                            <ol type="a">
+                                <li>Data storage on the server</li>
+                                <li>Cookies</li>
+                                <li>Indexed DB</li>
+                                <li>Local Storage</li>
+                                <li>Session Storage</li>
+                            </ol>
+                        </li>
+                        <li>
+                            Sharing of Data
+                        </li>
+                    </ol>
+                    <p class="fs-1">I. Storage of Data</p>
+                    <p>
+                        In this section, information is given about the methods that we use and do not use under the
+                        name of data storage.
+                    </p>
+                    <p class="fs-2">a. Data storage on the server</p>
+                    <p>
+                        Our application does not store your data on the server. All your data is stored on your device.
+                    </p>
+                    <p class="fs-2">b. Cookies</p>
+                    <p>
+                        Our application does not use cookies to store your data. However, the google translate feature
+                        in our application stores your choice in cookies so that you do not translate the language you
+                        translate again every time.
+                    </p>
+                    <p class="fs-2">c. Indexed DB</p>
+                    <p>
+                        Our application does not use IndexedDB technology used to store data.
+                    </p>
+                    <p class="fs-2">d. Local Storage</p>
+                    <p>
+                        Our application stores your shopping list in the local warehouse. Thus, when you close and open
+                        our application, your shopping list is prevented from being deleted.
+                    </p>
+                    <p class="fs-2">e. Session Storage</p>
+                    <p>
+                        Our application does not use session storage technology used to store data.
+                    </p>
+                    <p class="fs-1">II. Sharing of Data</p>
+                    <p>
+                        Our application does not share your data with third-party institutions or organizations.
+                    </p>
+                    <hr class="mt-5 mb-5">
+                    <table>
+                        <tr>
+                            <td><img style="width: 60px;height: 60px;" src="/gorseller/ikon.png"></td>
+                            <td>&nbsp;</td>
+                            <td>
+                                It is coded by <span translate="no">Talha YILDIZ</span> and <span
+                                    translate="no"></span>Said Nuri YILDIZ</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-12 bg-white shadow-sm">
+                <div class="container">
+                    <p>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            &copy; All rights reserved
+                        </div>
+                    </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
